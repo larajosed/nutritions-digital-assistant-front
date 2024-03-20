@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Registrarse</h1>
+  <form>
+    <div class="mb-3 form-floating row col-sm-5">
+      <input type="text" class="form-control" placeholder="name" required />
+      <label or="floatingInput">Nombre</label>
+    </div>
+    <div class="form-floating mb-3 row col-sm-5">
+      <input type="text" class="form-control" placeholder="lastName" required />
+      <label for="floatingInput">Apellido</label>
+    </div>
+
+    <div class="form-floating row col-sm-5 mb-3">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        required
+      />
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating row col-sm-5 mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        required
+      />
+      <label for="floatingPassword">Contraseña</label>
+      <span id="passwordHelpInline" class="form-text">
+        La contraseña debe tener entre 8 y 20 caracteres.
+      </span>
+    </div>
+    <div class="form-floating row col-sm-5 mb-3">
+      <select class="form-select" aria-label="Floating label select example">
+        <option selected>Selecciona tu genero</option>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+        <option value="3">No binario</option>
+      </select>
+    </div>
+    <div class="mb-3 form-floating row col-sm-5">
+      <input type="text" class="form-control" placeholder="address" required />
+      <label for="floatingInput">Dirección</label>
+    </div>
+    <div class="form-floating row col-sm-5 mb-3">
+      <input type="date" class="form-control" placeholder="date" required />
+      <label for="floatingInput">Fecha de nacimiento</label>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Enviar</button>
+    <button type="reset" class="btn btn-secondary">Cancelar</button>
+  </form>
+</div>
