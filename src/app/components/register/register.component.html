@@ -1,16 +1,52 @@
 <div class="container">
-  <h1>Registrarse</h1>
-  <form>
+  <div class="tittle"><h1>REGISTRARSE</h1></div>
+  <form class="row g-3">
     <div class="mb-3 form-floating row col-sm-5">
       <input type="text" class="form-control" placeholder="name" required />
       <label or="floatingInput">Nombre</label>
     </div>
-    <div class="form-floating mb-3 row col-sm-5">
+    <div class="form-floating mb-3 row col-sm-7">
       <input type="text" class="form-control" placeholder="lastName" required />
       <label for="floatingInput">Apellido</label>
     </div>
-
+    <div class="form-floating row col-sm-3 mb-3">
+      <select class="form-select" aria-label="Floating label select example">
+        <option selected>Selecciona tu genero</option>
+        <option value="1">Masculino</option>
+        <option value="2">Femenino</option>
+        <option value="3">No binario</option>
+      </select>
+    </div>
+    <div class="form-floating row col-sm-3 mb-3">
+      <input type="date" class="form-control" placeholder="date" required />
+      <label for="floatingInput">Fecha de nacimiento</label>
+    </div>
+    <div class="mb-3 form-floating row col-sm-10">
+      <input type="text" class="form-control" placeholder="address" required />
+      <label for="floatingInput">Dirección</label>
+    </div>
+    <div class="mb-3 form-floating row col-sm-2">
+      <input type="text" class="form-control" placeholder="address" required />
+      <label for="floatingInput">Cod Postal</label>
+    </div>
     <div class="form-floating row col-sm-5 mb-3">
+      <select class="form-select" aria-label="Floating label select example">
+        <option selected>Localidad</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Valencia">Valencia</option>
+      </select>
+    </div>
+    <div class="form-floating row col-sm-5 mb-3">
+      <select class="form-select" aria-label="Floating label select example">
+        <option selected>Provincia</option>
+        <option value="Madrid">Leganes</option>
+        <option value="Barcelona">Madrid</option>
+        <option value="Valencia">Mostoles</option>
+      </select>
+    </div>
+    <div><h3>Datos de Usuario</h3></div>
+    <div class="form-floating row col-sm-7 mb-3">
       <input
         type="email"
         class="form-control"
@@ -19,7 +55,7 @@
       />
       <label for="floatingInput">Email</label>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
+    <div class="form-floating row col-sm-6 mb-3">
       <input
         type="password"
         class="form-control"
@@ -31,24 +67,26 @@
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
-      <select class="form-select" aria-label="Floating label select example">
-        <option selected>Selecciona tu genero</option>
-        <option value="1">Masculino</option>
-        <option value="2">Femenino</option>
-        <option value="3">No binario</option>
-      </select>
-    </div>
-    <div class="mb-3 form-floating row col-sm-5">
-      <input type="text" class="form-control" placeholder="address" required />
-      <label for="floatingInput">Dirección</label>
-    </div>
-    <div class="form-floating row col-sm-5 mb-3">
-      <input type="date" class="form-control" placeholder="date" required />
-      <label for="floatingInput">Fecha de nacimiento</label>
+    <div class="form-floating row col-sm-6 mb-3">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        required
+      />
+      <label for="floatingPassword">Repita Contraseña</label>
+      <span id="passwordHelpInline" class="form-text">
+        La contraseña debe tener entre 8 y 20 caracteres.
+      </span>
     </div>
 
-    <button type="submit" class="btn btn-secondary">Enviar</button>
-    <button type="reset" class="btn btn-secondary">Cancelar</button>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-secondary btn-principal" type="reset">
+        Cancelar
+      </button>
+      <button class="btn btn-secondary me-md-2 btn-principal" type="submit">
+        Aceptar
+      </button>
+    </div>
   </form>
 </div>

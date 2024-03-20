@@ -1,6 +1,7 @@
 .navbar{
-   background-color:  #0a0a0abb;  
-   color: whitesmoke;
+   background-color: var(--bg-header);
+    
+   color: var(--tittle-primary)
 }
 
 .icon{
@@ -13,7 +14,7 @@
    display: flex;
    flex-wrap: nowrap;
    justify-content: space-between;
-   background-color: #bdb8b8b7;
+   background-color: var(--bg-img-header)
 }
 
 .images-common{
