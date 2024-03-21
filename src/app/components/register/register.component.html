@@ -1,15 +1,29 @@
 <div class="container">
   <div class="tittle"><h1>REGISTRARSE</h1></div>
-  <form class="row g-3">
-    <div class="mb-3 form-floating row col-sm-5">
-      <input type="text" class="form-control" placeholder="name" required />
-      <label or="floatingInput">Nombre</label>
+  <div class="tittle-secondary"><h3>Datos personales</h3></div>
+  <hr />
+  <form class="row row-cols-auto g-2 align-items-center">
+    <div class="col-12 form-floating mb-3 col-sm-5">
+      <input
+        id="nameInput"
+        type="text"
+        class="form-control"
+        placeholder="name"
+        required
+      />
+      <label for="nameInput">Nombre</label>
     </div>
-    <div class="form-floating mb-3 row col-sm-7">
-      <input type="text" class="form-control" placeholder="lastName" required />
-      <label for="floatingInput">Apellido</label>
+    <div class="col-12 form-floating mb-3 col-sm-7">
+      <input
+        id="lastNameInput"
+        type="text"
+        class="form-control"
+        placeholder="lastName"
+        required
+      />
+      <label for="lastNameInput">Apellido</label>
     </div>
-    <div class="form-floating row col-sm-3 mb-3">
+    <div class="col-12 form-floating col-sm-3 mb-3">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>Selecciona tu genero</option>
         <option value="1">Masculino</option>
@@ -17,19 +31,24 @@
         <option value="3">No binario</option>
       </select>
     </div>
-    <div class="form-floating row col-sm-3 mb-3">
-      <input type="date" class="form-control" placeholder="date" required />
+    <div class="col-12 form-floating col-sm-3 mb-3">
+      <input
+        type="date"
+        class="form-control"
+        placeholder="birthdate"
+        required
+      />
       <label for="floatingInput">Fecha de nacimiento</label>
     </div>
-    <div class="mb-3 form-floating row col-sm-10">
+    <div class="col-12 mb-3 form-floating col-sm-10">
       <input type="text" class="form-control" placeholder="address" required />
       <label for="floatingInput">Dirección</label>
     </div>
-    <div class="mb-3 form-floating row col-sm-2">
+    <div class="col-12 mb-3 form-floating col-sm-2">
       <input type="text" class="form-control" placeholder="address" required />
       <label for="floatingInput">Cod Postal</label>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
+    <div class="col-12 form-floating col-sm-5 mb-3">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>Localidad</option>
         <option value="Madrid">Madrid</option>
@@ -37,7 +56,7 @@
         <option value="Valencia">Valencia</option>
       </select>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
+    <div class="col-12 form-floating col-sm-5 mb-3">
       <select class="form-select" aria-label="Floating label select example">
         <option selected>Provincia</option>
         <option value="Madrid">Leganes</option>
@@ -45,8 +64,9 @@
         <option value="Valencia">Mostoles</option>
       </select>
     </div>
-    <div><h3>Datos de Usuario</h3></div>
-    <div class="form-floating row col-sm-7 mb-3">
+    <div class="tittle-secondary"><h3>Datos de Usuario</h3></div>
+    <hr />
+    <div class="form-floating col-sm-7 mb-3">
       <input
         type="email"
         class="form-control"
@@ -55,7 +75,7 @@
       />
       <label for="floatingInput">Email</label>
     </div>
-    <div class="form-floating row col-sm-6 mb-3">
+    <div class="form-floating col-sm-6 mb-3">
       <input
         type="password"
         class="form-control"
@@ -67,7 +87,7 @@
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
     </div>
-    <div class="form-floating row col-sm-6 mb-3">
+    <div class="form-floating col-sm-6 mb-3">
       <input
         type="password"
         class="form-control"
@@ -80,11 +100,11 @@
       </span>
     </div>
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      <button class="btn btn-secondary btn-principal" type="reset">
+    <div class="d-grid gap-2 d-md-flex mb-3 justify-content-md-end">
+      <button class="btn btn-secondary btn-primary" type="reset">
         Cancelar
       </button>
-      <button class="btn btn-secondary me-md-2 btn-principal" type="submit">
+      <button class="btn btn-secondary me-md-2 btn-primary" type="submit">
         Aceptar
       </button>
     </div>
