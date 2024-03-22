@@ -11,4 +11,16 @@
     background-color: var(--button-primary);
     color: var(--text-primary);
     border: none;
+    width: 80px;
+}
+
+.btn-primary:hover{
+ background-color: var(--bg-img-header);
+ color: var(--text-primary);
+     
+}
+
+.btn-secondary{
+    border: 0;
+    width: 80px;
 }

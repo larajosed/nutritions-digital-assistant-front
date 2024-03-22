@@ -1,112 +1,151 @@
 <div class="container">
   <div class="tittle"><h1>REGISTRARSE</h1></div>
-  <div class="tittle-secondary"><h3>Datos personales</h3></div>
-  <hr />
-  <form class="row row-cols-auto g-2 align-items-center">
-    <div class="col-12 form-floating mb-3 col-sm-5">
+  <app-sub-tittle subTitle="Datos personales"></app-sub-tittle>
+  <form
+    [formGroup]="form"
+    class="row row-cols-auto g-2 align-items-center mb-3"
+  >
+    <div class="col-12 form-floating col-sm-12 col-lg-6">
       <input
         id="nameInput"
         type="text"
         class="form-control"
         placeholder="name"
+        formControlName="name"
         required
       />
       <label for="nameInput">Nombre</label>
     </div>
-    <div class="col-12 form-floating mb-3 col-sm-7">
+    <div class="col-12 form-floating col-sm-12 col-lg-6">
       <input
         id="lastNameInput"
         type="text"
         class="form-control"
         placeholder="lastName"
+        formControlName="lastName"
         required
       />
       <label for="lastNameInput">Apellido</label>
     </div>
-    <div class="col-12 form-floating col-sm-3 mb-3">
-      <select class="form-select" aria-label="Floating label select example">
-        <option selected>Selecciona tu genero</option>
+    <div class="col-12 form-floating col-sm-6 col-lg-4">
+      <select
+        id="genreInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="gender"
+        placeholder="Selecciona tu genero"
+      >
         <option value="1">Masculino</option>
         <option value="2">Femenino</option>
         <option value="3">No binario</option>
       </select>
+      <label for="genreInput">Selecciona tu genero</label>
     </div>
-    <div class="col-12 form-floating col-sm-3 mb-3">
+    <div class="col-12 form-floating col-sm-6 col-lg-4">
       <input
+        id="birthdateInput"
         type="date"
         class="form-control"
         placeholder="birthdate"
+        formControlName="birthdate"
         required
       />
-      <label for="floatingInput">Fecha de nacimiento</label>
+      <label for="birthdateInput">Fecha de nacimiento</label>
     </div>
-    <div class="col-12 mb-3 form-floating col-sm-10">
-      <input type="text" class="form-control" placeholder="address" required />
-      <label for="floatingInput">Dirección</label>
+    <div class="col-12 form-floating col-sm-12 col-lg-8">
+      <input
+        id="addressInput"
+        type="text"
+        class="form-control"
+        formControlName="address"
+        placeholder="Dirección"
+        required
+      />
+      <label for="addressInput">Dirección</label>
     </div>
-    <div class="col-12 mb-3 form-floating col-sm-2">
-      <input type="text" class="form-control" placeholder="address" required />
-      <label for="floatingInput">Cod Postal</label>
+    <div class="col-12 form-floating col-sm-5 col-md-4 col-lg-3">
+      <input
+        id="postalCodeInput"
+        type="text"
+        class="form-control"
+        placeholder="Codigo Postal"
+        required
+      />
+      <label for="postalCodeInput">Cod Postal</label>
     </div>
-    <div class="col-12 form-floating col-sm-5 mb-3">
-      <select class="form-select" aria-label="Floating label select example">
-        <option selected>Localidad</option>
-        <option value="Madrid">Madrid</option>
-        <option value="Barcelona">Barcelona</option>
-        <option value="Valencia">Valencia</option>
-      </select>
-    </div>
-    <div class="col-12 form-floating col-sm-5 mb-3">
-      <select class="form-select" aria-label="Floating label select example">
-        <option selected>Provincia</option>
+    <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
+      <select
+        id="provinceInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="province"
+      >
         <option value="Madrid">Leganes</option>
         <option value="Barcelona">Madrid</option>
         <option value="Valencia">Mostoles</option>
       </select>
+      <label for="provinceInput">Provincia</label>
     </div>
-    <div class="tittle-secondary"><h3>Datos de Usuario</h3></div>
-    <hr />
-    <div class="form-floating col-sm-7 mb-3">
+    <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
+      <select
+        id="locationInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="location"
+      >
+        <option value="Madrid">Madrid</option>
+        <option value="Barcelona">Barcelona</option>
+        <option value="Valencia">Valencia</option>
+      </select>
+      <label for="locationInput">Localidad</label>
+    </div>
+  </form>
+
+  <app-sub-tittle subTitle="Datos de usuario"></app-sub-tittle>
+  <form [formGroup]="form" class="row row-cols-auto g-2 align-items-center">
+    <div class="form-floating col-12 col-sm-12 col-lg-8">
       <input
+        id="emailInput"
         type="email"
         class="form-control"
-        placeholder="name@example.com"
+        formControlName="email"
+        placeholder="Email"
         required
       />
-      <label for="floatingInput">Email</label>
+      <label for="emailInput">Email</label>
     </div>
-    <div class="form-floating col-sm-6 mb-3">
+    <div class="form-floating col-12 col-sm-6 col-lg-5">
       <input
+        id="passwordInput"
         type="password"
         class="form-control"
-        placeholder="Password"
+        formControlName="password"
+        placeholder="Contraseña"
         required
       />
-      <label for="floatingPassword">Contraseña</label>
+      <label for="passwordInput">Contraseña</label>
       <span id="passwordHelpInline" class="form-text">
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
     </div>
-    <div class="form-floating col-sm-6 mb-3">
+    <div class="form-floating col-12 col-sm-6 col-lg-5">
       <input
+        id="password1Input"
         type="password"
         class="form-control"
-        placeholder="Password"
+        placeholder="Repita Contraseña"
+        formControlName="password"
         required
       />
-      <label for="floatingPassword">Repita Contraseña</label>
+      <label for="password1Input">Repita Contraseña</label>
       <span id="passwordHelpInline" class="form-text">
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
     </div>
 
-    <div class="d-grid gap-2 d-md-flex mb-3 justify-content-md-end">
-      <button class="btn btn-secondary btn-primary" type="reset">
-        Cancelar
-      </button>
-      <button class="btn btn-secondary me-md-2 btn-primary" type="submit">
-        Aceptar
-      </button>
+    <div class="col-12 gap-2 d-flex mb-3 justify-content-end">
+      <button class="btn btn-secondary me-md-2" type="reset">Cancelar</button>
+      <button class="btn btn-primary" type="submit">Aceptar</button>
     </div>
   </form>
 </div>
