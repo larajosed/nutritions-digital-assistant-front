@@ -5,7 +5,7 @@
     [formGroup]="form"
     class="row row-cols-auto g-2 align-items-center mb-3"
   >
-    <div class="col-12 form-floating col-sm-12 col-lg-6">
+    <div class="col-12 form-floating col-sm-12 col-lg-5 col-auto">
       <input
         id="nameInput"
         type="text"
@@ -15,8 +15,16 @@
         required
       />
       <label for="nameInput">Nombre</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('name')?.hasError('required') && form.get('name')?.touched
+        "
+      >
+        El campo nombre es requerido
+      </p>
     </div>
-    <div class="col-12 form-floating col-sm-12 col-lg-6">
+    <div class="col-12 form-floating col-sm-12 col-lg-5 col-auto">
       <input
         id="lastNameInput"
         type="text"
@@ -26,6 +34,15 @@
         required
       />
       <label for="lastNameInput">Apellido</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('lastName')?.hasError('required') &&
+          form.get('lastName')?.touched
+        "
+      >
+        El campo Apellido es requerido
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-6 col-lg-4">
       <select
@@ -40,6 +57,15 @@
         <option value="3">No binario</option>
       </select>
       <label for="genreInput">Selecciona tu genero</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('gender')?.hasError('required') &&
+          form.get('gender')?.touched
+        "
+      >
+        El campo Genero es requerido
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-6 col-lg-4">
       <input
@@ -51,6 +77,15 @@
         required
       />
       <label for="birthdateInput">Fecha de nacimiento</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('birthdate')?.hasError('required') &&
+          form.get('birthdate')?.touched
+        "
+      >
+        El campo Dia de nacimiento es requerido
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-12 col-lg-8">
       <input
@@ -62,16 +97,38 @@
         required
       />
       <label for="addressInput">Dirección</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('address')?.hasError('required') &&
+          form.get('address')?.touched
+        "
+      >
+        El campo Dirección es requerido
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-5 col-md-4 col-lg-3">
       <input
         id="postalCodeInput"
         type="text"
         class="form-control"
+        formControlName="postalCode"
         placeholder="Codigo Postal"
         required
       />
       <label for="postalCodeInput">Cod Postal</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('postalCode')?.hasError('required') &&
+          form.get('postalCode')?.touched
+        "
+      >
+        El campo Codigo postal es requerido
+      </p>
+      <p class="textAlert" *ngIf="form.get('postalCode')?.errors?.['pattern']">
+        El codigo postal solo pueden ser números
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
       <select
@@ -79,12 +136,26 @@
         class="form-select"
         aria-label="Floating label select example"
         formControlName="province"
+        (change)="onProvinceSelection()"
       >
-        <option value="Madrid">Leganes</option>
-        <option value="Barcelona">Madrid</option>
-        <option value="Valencia">Mostoles</option>
+        <option
+          [ngValue]="province"
+          *ngFor="let province of provinces"
+          value="province.name"
+        >
+          {{ province["name"] }}
+        </option>
       </select>
       <label for="provinceInput">Provincia</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('province')?.hasError('required') &&
+          form.get('province')?.touched
+        "
+      >
+        El campo provincia es requerido
+      </p>
     </div>
     <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
       <select
@@ -93,11 +164,20 @@
         aria-label="Floating label select example"
         formControlName="location"
       >
-        <option value="Madrid">Madrid</option>
-        <option value="Barcelona">Barcelona</option>
-        <option value="Valencia">Valencia</option>
+        <option [ngValue]="location" *ngFor="let location of locations">
+          {{ location["name"] }}
+        </option>
       </select>
       <label for="locationInput">Localidad</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('location')?.hasError('required') &&
+          form.get('location')?.touched
+        "
+      >
+        El campo localidad es requerido
+      </p>
     </div>
   </form>
 
@@ -107,37 +187,56 @@
       <input
         id="emailInput"
         type="email"
+        name="email"
         class="form-control"
         formControlName="email"
         placeholder="Email"
         required
+        email
       />
       <label for="emailInput">Email</label>
+      <div class="error textAlert" *ngIf="form.get('email')?.touched">
+        <p *ngIf="form.get('email')?.errors?.['required']">
+          El campo email es requerido
+        </p>
+        <p *ngIf="form.get('email')?.errors?.['email']">
+          El email no es valido
+        </p>
+      </div>
     </div>
     <div class="form-floating col-12 col-sm-6 col-lg-5">
       <input
         id="passwordInput"
         type="password"
-        class="form-control"
+        class="form-control passwordPrincipal"
         formControlName="password"
         placeholder="Contraseña"
         required
       />
       <label for="passwordInput">Contraseña</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('password')?.hasError('required') &&
+          form.get('password')?.touched
+        "
+      >
+        El campo contraseña es requerido
+      </p>
       <span id="passwordHelpInline" class="form-text">
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
     </div>
     <div class="form-floating col-12 col-sm-6 col-lg-5">
       <input
-        id="password1Input"
+        id="secondPasswordInput"
         type="password"
-        class="form-control"
+        class="form-control passwordSecondary"
         placeholder="Repita Contraseña"
-        formControlName="password"
+        formControlName="secondPassword"
         required
       />
-      <label for="password1Input">Repita Contraseña</label>
+      <label for="secondPasswordInput">Repita Contraseña</label>
       <span id="passwordHelpInline" class="form-text">
         La contraseña debe tener entre 8 y 20 caracteres.
       </span>
@@ -145,7 +244,14 @@
 
     <div class="col-12 gap-2 d-flex mb-3 justify-content-end">
       <button class="btn btn-secondary me-md-2" type="reset">Cancelar</button>
-      <button class="btn btn-primary" type="submit">Aceptar</button>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="saveNewUser()"
+        [disabled]="!form.valid"
+      >
+        Aceptar
+      </button>
     </div>
   </form>
 </div>
