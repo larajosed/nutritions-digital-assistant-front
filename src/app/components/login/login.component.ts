@@ -33,7 +33,7 @@ export class LoginComponent {
             this.errorLogin = true;
           } else {
             localStorage.setItem('user', JSON.stringify(response));
-            this.router.navigate(['/', 'register']);
+            this.router.navigate(['/', 'diets']);
           }
         },
       });

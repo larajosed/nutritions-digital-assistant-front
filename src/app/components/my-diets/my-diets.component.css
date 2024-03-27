@@ -1,0 +1,53 @@
+.container{
+    
+}
+.container-box{
+    display: flex;
+    justify-content: center;
+
+}
+
+.container-text{
+    background-color: rgb(245 245 245);
+    width: 65em;
+    text-align: center;
+    height: 8em;
+    border-style: dashed;
+    border-radius: 1em;
+}
+
+.text1{
+    font-size: medium;
+    font-family: system-ui;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.text2{
+    font-size: xx-large;
+    font-family: system-ui;
+}
+
+.container-signe{
+    background: #cccccc;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.6em;
+  font-family: fantasy;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em;
+  box-shadow: 10px 10px 8px -3px rgba(117,117,117,1);
+}
+
+.contain-box-signe{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin-top: 5px;
+}
