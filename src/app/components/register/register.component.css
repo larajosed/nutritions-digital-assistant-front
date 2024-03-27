@@ -1,8 +1,21 @@
+.tittle{
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
 
-.container{
-    background-color: rgb(51, 47, 47);
 }
 
-h1{
-    color: whitesmoke
+.tittle-secondary{
+    font-style: italic;
+    color: var( --text-primary);
+}
+
+hr{
+  height: 1px;
+  margin-left: 25px;
+  margin-right: 50%;
+  width: 35%;
+  background-color: rgb(2, 2, 2);
+  margin-top: -9px;
 }

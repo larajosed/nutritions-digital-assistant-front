@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --bg-header: #0a0a0abb; 
+    --bg-img-header: #bdb8b8b7; 
+    --tittle-primary: #fffffe;
+    --text-primary: #1d1d1dcb;
+    --text-secondary: #77777788;
+    --button-primary: #42445056;  
+}
+
+.btn-primary {
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+    border: none;
+    width: 80px;
+}
+
+.btn-primary:hover{
+ background-color: var(--bg-img-header);
+ color: var(--text-primary);
+     
+}
+
+.btn-secondary{
+    border: 0;
+    width: 80px;
+}
+
+.textAlert{
+    color: red;
+}
+
+.tittle{
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
+
+}

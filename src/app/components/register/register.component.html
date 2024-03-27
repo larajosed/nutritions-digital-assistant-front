@@ -1,54 +1,257 @@
 <div class="container">
-  <h1>Registrarse</h1>
-  <form>
-    <div class="mb-3 form-floating row col-sm-5">
-      <input type="text" class="form-control" placeholder="name" required />
-      <label or="floatingInput">Nombre</label>
-    </div>
-    <div class="form-floating mb-3 row col-sm-5">
-      <input type="text" class="form-control" placeholder="lastName" required />
-      <label for="floatingInput">Apellido</label>
-    </div>
-
-    <div class="form-floating row col-sm-5 mb-3">
+  <div class="tittle"><h1>REGISTRARSE</h1></div>
+  <app-sub-tittle subTitle="Datos personales"></app-sub-tittle>
+  <form
+    [formGroup]="form"
+    class="row row-cols-auto g-2 align-items-center mb-3"
+  >
+    <div class="col-12 form-floating col-sm-12 col-lg-5 col-auto">
       <input
-        type="email"
+        id="nameInput"
+        type="text"
         class="form-control"
-        placeholder="name@example.com"
+        placeholder="name"
+        formControlName="name"
         required
       />
-      <label for="floatingInput">Email</label>
+      <label for="nameInput">Nombre</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('name')?.hasError('required') && form.get('name')?.touched
+        "
+      >
+        El campo nombre es requerido
+      </p>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
+    <div class="col-12 form-floating col-sm-12 col-lg-5 col-auto">
       <input
-        type="password"
+        id="lastNameInput"
+        type="text"
         class="form-control"
-        placeholder="Password"
+        placeholder="lastName"
+        formControlName="lastName"
         required
       />
-      <label for="floatingPassword">Contraseña</label>
-      <span id="passwordHelpInline" class="form-text">
-        La contraseña debe tener entre 8 y 20 caracteres.
-      </span>
+      <label for="lastNameInput">Apellido</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('lastName')?.hasError('required') &&
+          form.get('lastName')?.touched
+        "
+      >
+        El campo Apellido es requerido
+      </p>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
-      <select class="form-select" aria-label="Floating label select example">
-        <option selected>Selecciona tu genero</option>
+    <div class="col-12 form-floating col-sm-6 col-lg-4">
+      <select
+        id="genreInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="gender"
+        placeholder="Selecciona tu genero"
+      >
         <option value="1">Masculino</option>
         <option value="2">Femenino</option>
         <option value="3">No binario</option>
       </select>
+      <label for="genreInput">Selecciona tu genero</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('gender')?.hasError('required') &&
+          form.get('gender')?.touched
+        "
+      >
+        El campo Genero es requerido
+      </p>
     </div>
-    <div class="mb-3 form-floating row col-sm-5">
-      <input type="text" class="form-control" placeholder="address" required />
-      <label for="floatingInput">Dirección</label>
+    <div class="col-12 form-floating col-sm-6 col-lg-4">
+      <input
+        id="birthdateInput"
+        type="date"
+        class="form-control"
+        placeholder="birthdate"
+        formControlName="birthdate"
+        required
+      />
+      <label for="birthdateInput">Fecha de nacimiento</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('birthdate')?.hasError('required') &&
+          form.get('birthdate')?.touched
+        "
+      >
+        El campo Dia de nacimiento es requerido
+      </p>
     </div>
-    <div class="form-floating row col-sm-5 mb-3">
-      <input type="date" class="form-control" placeholder="date" required />
-      <label for="floatingInput">Fecha de nacimiento</label>
+    <div class="col-12 form-floating col-sm-12 col-lg-8">
+      <input
+        id="addressInput"
+        type="text"
+        class="form-control"
+        formControlName="address"
+        placeholder="Dirección"
+        required
+      />
+      <label for="addressInput">Dirección</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('address')?.hasError('required') &&
+          form.get('address')?.touched
+        "
+      >
+        El campo Dirección es requerido
+      </p>
+    </div>
+    <div class="col-12 form-floating col-sm-5 col-md-4 col-lg-3">
+      <input
+        id="postalCodeInput"
+        type="text"
+        class="form-control"
+        formControlName="postalCode"
+        placeholder="Codigo Postal"
+        required
+      />
+      <label for="postalCodeInput">Cod Postal</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('postalCode')?.hasError('required') &&
+          form.get('postalCode')?.touched
+        "
+      >
+        El campo Codigo postal es requerido
+      </p>
+      <p class="textAlert" *ngIf="form.get('postalCode')?.errors?.['pattern']">
+        El codigo postal solo pueden ser números
+      </p>
+    </div>
+    <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
+      <select
+        id="provinceInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="province"
+        (change)="onProvinceSelection()"
+      >
+        <option
+          [ngValue]="province"
+          *ngFor="let province of provinces"
+          value="province.name"
+        >
+          {{ province["name"] }}
+        </option>
+      </select>
+      <label for="provinceInput">Provincia</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('province')?.hasError('required') &&
+          form.get('province')?.touched
+        "
+      >
+        El campo provincia es requerido
+      </p>
+    </div>
+    <div class="col-12 form-floating col-sm-7 col-md-6 col-lg-3">
+      <select
+        id="locationInput"
+        class="form-select"
+        aria-label="Floating label select example"
+        formControlName="location"
+      >
+        <option [ngValue]="location" *ngFor="let location of locations">
+          {{ location["name"] }}
+        </option>
+      </select>
+      <label for="locationInput">Localidad</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('location')?.hasError('required') &&
+          form.get('location')?.touched
+        "
+      >
+        El campo localidad es requerido
+      </p>
+    </div>
+  </form>
+
+  <app-sub-tittle subTitle="Datos de usuario"></app-sub-tittle>
+  <form [formGroup]="form" class="row row-cols-auto g-2 align-items-center">
+    <div class="form-floating col-12 col-sm-12 col-lg-8">
+      <input
+        id="emailInput"
+        type="email"
+        name="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="Email"
+        required
+        email
+      />
+      <label for="emailInput">Email</label>
+      <div class="error textAlert" *ngIf="form.get('email')?.touched">
+        <p *ngIf="form.get('email')?.errors?.['required']">
+          El campo email es requerido
+        </p>
+        <p *ngIf="form.get('email')?.errors?.['email']">
+          El email no es valido
+        </p>
+      </div>
+    </div>
+    <div class="form-floating col-12 col-sm-6 col-lg-5">
+      <input
+        id="passwordInput"
+        type="password"
+        class="form-control passwordPrincipal"
+        formControlName="password"
+        placeholder="Contraseña"
+        required
+      />
+      <label for="passwordInput">Contraseña</label>
+      <p
+        class="textAlert"
+        *ngIf="
+          form.get('password')?.hasError('required') &&
+          form.get('password')?.touched
+        "
+      >
+        El campo contraseña es requerido
+      </p>
+      <span id="passwordHelpInline" class="form-text">
+        La contraseña debe tener entre 8 y 20 caracteres.
+      </span>
+    </div>
+    <div class="form-floating col-12 col-sm-6 col-lg-5">
+      <input
+        id="secondPasswordInput"
+        type="password"
+        class="form-control passwordSecondary"
+        placeholder="Repita Contraseña"
+        formControlName="secondPassword"
+        required
+      />
+      <label for="secondPasswordInput">Repita Contraseña</label>
+      <span id="passwordHelpInline" class="form-text">
+        La contraseña debe tener entre 8 y 20 caracteres.
+      </span>
     </div>
 
-    <button type="submit" class="btn btn-secondary">Enviar</button>
-    <button type="reset" class="btn btn-secondary">Cancelar</button>
+    <div class="col-12 gap-2 d-flex mb-3 justify-content-end">
+      <button class="btn btn-secondary me-md-2" type="reset">Cancelar</button>
+      <button
+        class="btn btn-primary"
+        type="submit"
+        (click)="saveNewUser()"
+        [disabled]="!form.valid"
+      >
+        Aceptar
+      </button>
+    </div>
   </form>
 </div>
