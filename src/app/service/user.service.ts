@@ -12,4 +12,13 @@ export class UserService {
   saveUser(user: any) {
     return this.http.post(`${this.url}/save/user`, user);
   }
+
+  getUsuario(email: any, password: any) {
+    return this.http.get(`${this.url}/user`, {
+      params: {
+        email: email,
+        password: password,
+      },
+    });
+  }
 }

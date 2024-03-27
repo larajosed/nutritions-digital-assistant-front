@@ -24,3 +24,15 @@
     border: 0;
     width: 80px;
 }
+
+.textAlert{
+    color: red;
+}
+
+.tittle{
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 20px;
+
+}
